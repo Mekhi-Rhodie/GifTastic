@@ -1,0 +1,16 @@
+header{
+    text-align: center;
+    font-size: 46px;
+    font-weight: bold;
+    text-decoration: underline, black; 
+    color: aquamarine;
+    background-color: aliceblue;
+}
+
+button, #submit{
+    margin: 15px;
+    background-color: skyblue;
+    color: black;
+    font-style: italic;
+}
+
