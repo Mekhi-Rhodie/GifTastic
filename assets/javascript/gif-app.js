@@ -23,14 +23,22 @@ var topics = [
     "sword art online"
 ];
 
-    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + topics + "&api_key=jZgvmAfsUyAWVLyCKuEAHj8keAQ2zpJ2&limit=15";
+$("#submit").on("click", function(event){
+  event.preventDefault();
+  var submission = $("#gif-choice").val().trim();
+  document.getElementById("header").innerHTML = submission;
+});
 
-    $.ajax({
-      url: queryURL,
+
+
+    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + + "&api_key=jZgvmAfsUyAWVLyCKuEAHj8keAQ2zpJ2&limit=15";
+
+    /*$.ajax({
+      url: queryURL,top
       method: "GET"
     }).then(function(response) {
       $("#gif-button").click(function(){
         $("gifs").text(response)
       });
-    });
+    });*/
 
