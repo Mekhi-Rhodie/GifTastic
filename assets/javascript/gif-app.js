@@ -26,19 +26,25 @@ var topics = [
 $("#submit").on("click", function(event){
   event.preventDefault();
   var submission = $("#gif-choice").val().trim();
-  document.getElementById("header").innerHTML = submission;
+  
+  var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + submission + "&api_key=jZgvmAfsUyAWVLyCKuEAHj8keAQ2zpJ2&limit=15";
+
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function(response) {
+      for(i = 0; i < response.data.length; i++){
+        console.log(response.data[i]);
+        $("#gifs").text(response)
+      }
+      //console.log(response.data)
+    });
+    $("#gif-buttons").append("<button>" + submission + "</button>")
 });
 
 
 
-    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + + "&api_key=jZgvmAfsUyAWVLyCKuEAHj8keAQ2zpJ2&limit=15";
 
-    /*$.ajax({
-      url: queryURL,top
-      method: "GET"
-    }).then(function(response) {
-      $("#gif-button").click(function(){
-        $("gifs").text(response)
-      });
-    });*/
+
+  
 
