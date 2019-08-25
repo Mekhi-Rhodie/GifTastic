@@ -34,8 +34,8 @@ $("#submit").on("click", function(event){
       method: "GET"
     }).then(function(response) {
       for(i = 0; i < response.data.length; i++){
-        console.log(response.data[i]);
-        $("#gifs").text(response)
+        console.log(response.data[i].images.original.url);
+        $("#gifs").append($("<img>").attr("src", response.data[i].images.original.url ));
       }
       //console.log(response.data)
     });
