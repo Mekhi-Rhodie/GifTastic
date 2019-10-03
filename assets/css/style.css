@@ -1,42 +1,41 @@
 header{
-    text-align: center;
-    font-size: 46px;
-    font-weight: bold;
+    background-color: black;
     width: 100%;
-    height: 100%;
-    border-style: solid;
-    border-radius: 20px;
-    border-bottom-color: #FFF05A; 
-    border-top-color: #E5E5E5;
-    color: #FF785A;
-    background-color: #191919;
-}
-
-button, #submit{
-    margin: 10px;
-    padding: 15px;
-    width: 110px;
-    height: 50px;
-    background-color: #191919;
-    color: #FF785A;
+    height: 100px;
+    font-size: 40px;
+    font-weight: bolder;
     text-align: center;
-    font-style: italic;
-    font-weight: bold;
-    font-size: 20px;
-    border-style: solid;
-    border-left-color: #FF785A;
-    border-right-color: #FF785A;
-    border-bottom-color: #FFF05A; 
-    border-top-color: #E5E5E5;
-    border-radius: 20px;
+    color: aliceblue;  
 }
 
-legend{
-    background-color: #191919;
-    color: #E5E5E5;
-    font-size: 20px;
+main{
+    margin-top: 150px;
+    background-color: darkcyan;
+    padding: 50px;
 }
 
 form{
-    margin: 50px;
+    margin-left: 125px;
+    margin-right: 125px; 
+}
+
+img{
+    width: 250px;
+    height: 250px;
+}
+
+img{
+    margin: 10px;
+}
+
+#gifs{
+    margin-left: 110px;
+}
+
+footer{
+    background-color: black;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    margin-top: 27%;
 }
