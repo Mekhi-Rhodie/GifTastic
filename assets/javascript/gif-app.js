@@ -2,11 +2,11 @@ var topics = [];
 
 $("#submit").on("click", function (event) {
   event.preventDefault();
-  var submission = $("#gif-choice").val().trim();
+  var submission = $("#submission").val().trim();
 
   topics.push(submission)
 
-  var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + submission + "&api_key=jZgvmAfsUyAWVLyCKuEAHj8keAQ2zpJ2&limit=10";
+  var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + submission + "&api_key=jZgvmAfsUyAWVLyCKuEAHj8keAQ2zpJ2&limit=12";
 
   $.ajax({
     url: queryURL,
