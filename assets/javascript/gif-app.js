@@ -4,7 +4,7 @@ $("#submit").on("click", function (event) {
   event.preventDefault();
   var submission = $("#submission").val().trim();
 
-  topics.push(submission)
+  
 
   var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + submission + "&api_key=jZgvmAfsUyAWVLyCKuEAHj8keAQ2zpJ2&limit=12";
 
@@ -17,14 +17,16 @@ $("#submit").on("click", function (event) {
       $("#gifs").prepend($("<img>").attr("src", response.data[i].images.original.url));
     }
     
-    console.log(response.data)
+    console.log(topics)
   });
 
-$("#gif-buttons").append("<button>" + submission + "</button>")
+  
+
+$("#gif-buttons").prepend("<button class='btn btn-primary' id='buttons'>" + submission + "</button>" )
 
   for (i = 0; i < topics.length; i++) {
     if (submission === topics[i]) {
-        
+     topics.push(submission)   
     };
   };
 });
