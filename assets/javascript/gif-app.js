@@ -6,7 +6,7 @@ $("#submit").on("click", function (event) {
 
   
 
-  var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + submission + "&api_key=jZgvmAfsUyAWVLyCKuEAHj8keAQ2zpJ2&limit=12";
+  var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + submission + "&api_key=jZgvmAfsUyAWVLyCKuEAHj8keAQ2zpJ2&limit=9";
 
   $.ajax({
     url: queryURL,
