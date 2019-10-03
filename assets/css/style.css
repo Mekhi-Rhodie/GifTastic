@@ -13,8 +13,13 @@ main{
     margin-bottom: 150px;
     background-color: rgb(67, 90, 90);
     padding: 50px;
-    background-image: linear-gradient(to right, #80e5f7, #97ef94)
-}
+    background-image: linear-gradient(to right, #80e5f7, #97ef94);
+    width: 100%;
+    height: 100%;
+    box-shadow: inset -7px -7px 10px #e8e9ed;
+};
+
+
 
 form{
     margin-left: 125px;
