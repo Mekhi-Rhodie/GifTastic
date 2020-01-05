@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Gif-tastic | Home</title>
     <meta charset="UTF-8">
@@ -7,27 +8,44 @@
     <meta name="author" content="Mekhi">
     <meta name="description" content="App that post top trendning GIFs on the Webpage via button press.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/index.css">
     <link rel="stylesheet" href="assets/css/bootstrap.css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 </head>
+
 <body>
-    <header></header>
-    <div class="container">
+    <header>
         <div class="row">
-            <form>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Email address</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">Password</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </form>
+            <div class="col-md-9">
+                <p class="header-content">GifTastic!</p>
+            </div>
+            <div class="col-md-3">
+                <button type="button" id="sign-up" class="btn btn-primary">Login / Sign-up</button>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div id="login-modal" class="row" class="modal">
+            <div class="col-sm-7">
+                <form>
+                    <div class="form-group">
+                        <label class="form-head" for="email">Email address:</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="E-mail">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-head" for="password">Password:</label>
+                        <input type="password" class="form-control" id="password" name="password"
+                            placeholder="Password">
+                    </div>
+                    <button type="submit" id="login" class="btn btn-primary">Login</button>
+                    <button type="submit" id="register" class="btn btn-primary">Register</button>
+                </form>
+            </div>
+
         </div>
     </div>
 </body>
+<script src="assets/javascript/index.js"></script>
+
 </html>
