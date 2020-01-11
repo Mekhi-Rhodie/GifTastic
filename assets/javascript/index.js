@@ -7,27 +7,46 @@ var firebaseConfig = {
     messagingSenderId: "319648090637",
     appId: "1:319648090637:web:7605b4acaf393f11692344",
     measurementId: "G-W09JL12XDP"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
-  const database = firebase.firestore()
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
+const database = firebase.firestore();
+const auth = firebase.auth()
 
-const email = $("#email").val().trim();
-const password = $("#password").val().trim();
+
 
 $(document).ready(function () {
+
     $("#sign-up").on("click", function () {
         $("#login-modal").fadeIn(600).css("display", "block")
     });
-    $("#login").on("click", function(){
-        firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-            
-          });
+    $("#login").on("click", function () {
+        event.preventDefault()
+        const email = $("#email").val().trim();
+        const password = $("#password").val().trim();
+        auth.signInWithEmailAndPassword(email, password).catch(function (error) {
+            console.log(error)
+        });
     });
-    $("#register").on("click", function(){
-        firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-           
-          });
+    $("#register").on("click", function () {
+        event.preventDefault()
+        const email = $("#email").val().trim();
+        const password = $("#password").val().trim();
+        auth.createUserWithEmailAndPassword(email, password).catch(function (error) {
+            console.log(error)
+        });
     });
+});
+
+auth.onAuthStateChanged(function (user) {
+    if (user) {
+        console.log("User is signed in.")
+        var email = user.email;
+        var uid = user.uid;
+        console.log(uid + "  " + email)
+        window.location.replace("app.html")
+    } else {
+        console.log("No User")
+    }
 });
