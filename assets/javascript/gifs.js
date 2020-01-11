@@ -26,6 +26,10 @@ auth.onAuthStateChanged(function (user) {
     }
 });
 
+$("#giftastic").on("click", function(event){
+    window.location.replace("app.html")
+})
+
 $("#sign-out").on("click", function (event) {
     event.preventDefault();
     firebase.auth().signOut().then(function () {
