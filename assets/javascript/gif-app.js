@@ -18,9 +18,6 @@ const auth = firebase.auth()
 $("#submit").on("click", function (event) {
   event.preventDefault();
   var submission = $("#submission").val().trim();
-
-  
-
   var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + submission + "&api_key=jZgvmAfsUyAWVLyCKuEAHj8keAQ2zpJ2&limit=18";
 
   $.ajax({
@@ -28,7 +25,6 @@ $("#submit").on("click", function (event) {
     method: "GET"
   }).then(function (response) {
     for (i = 0; i < response.data.length; i++) {
-      //console.log(response.data[i].images.original.url);
       $("#gifs").prepend($("<img>").attr("src", response.data[i].images.original.url));
     }    
     console.log(topics)
@@ -47,4 +43,13 @@ auth.onAuthStateChanged(function (user) {
   } else {
       console.log("No User")
   }
+});
+
+$("#sign-out").on("click", function(event){
+  event.preventDefault();
+  firebase.auth().signOut().then(function() {
+    window.location.replace("index.html")
+  }).catch(function(error) {
+    console.log("User not signed out!")
+  });
 });
