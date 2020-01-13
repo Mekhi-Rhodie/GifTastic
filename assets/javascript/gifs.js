@@ -11,7 +11,7 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
-const database = firebase.firestore();
+const db = firebase.firestore();
 const auth = firebase.auth()
 
 auth.onAuthStateChanged(function (user) {
@@ -26,7 +26,26 @@ auth.onAuthStateChanged(function (user) {
     }
 });
 
-$("#giftastic").on("click", function(event){
+auth.onAuthStateChanged(function (user) {
+    if (user) {
+        db.collection("Gifs").doc(user.email).get().then(function (doc) {
+            if (doc.exists) {
+                const data = doc.data().gifs
+                for(let i = 0; i < data.length; i++){
+                    console.log(data[i])
+                    $("#gifs").prepend($("<img>").attr("src", data[i]));
+                }
+            } else {
+                console.log("No such document!");
+            }
+        }).catch(function (error) {
+            console.log("Error getting document:", error);
+        });
+
+    }
+});
+
+$("#giftastic").on("click", function (event) {
     window.location.replace("app.html")
 })
 
