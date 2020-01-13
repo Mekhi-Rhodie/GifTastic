@@ -17,7 +17,6 @@ const auth = firebase.auth()
 
 
 $(document).ready(function () {
-
     $("#sign-up").on("click", function () {
         $("#login-modal").fadeIn(600).css("display", "block")
     });
