@@ -11,11 +11,14 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
-const database = firebase.firestore();
+const db = firebase.firestore();
 const auth = firebase.auth()
+//const database = firebase.database()
+const saveMode = {
+  saving: false
+}
 
-
-$("#submit").on("click", function (event) {
+$("#search").on("click", function (event) {
   event.preventDefault();
   var submission = $("#submission").val().trim();
   var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + submission + "&api_key=jZgvmAfsUyAWVLyCKuEAHj8keAQ2zpJ2&limit=18";
@@ -26,35 +29,68 @@ $("#submit").on("click", function (event) {
   }).then(function (response) {
     for (i = 0; i < response.data.length; i++) {
       $("#gifs").prepend($("<img>").attr("src", response.data[i].images.original.url));
-    }    
-    console.log(topics)
+    }
   });
+});
 
-$("#gif-buttons").prepend("<button class='btn btn-primary'>" + submission + "</button>" )
+$("#save-gif").on("click", function (event) {
+  event.preventDefault()
+  saveMode.saving = true
+  if (saveMode.saving === true) {
+    $("#nav").prepend("<button id='save' class='btn btn-primary'>" + "Save" + "</button>")
+    $("body").css("opacity", ".85")
+    let savedGif = []
 
+    $("img").on("click", function () {
+      event.preventDefault()
+      const gif = $(this).attr("src");
+      if (!savedGif.includes(gif)) {
+        savedGif.push(gif)
+      }
+      console.clear()
+      console.log(savedGif)
+    })
+
+    $("#save").on("click", function (event) {
+      event.preventDefault()
+      auth.onAuthStateChanged(function (user) {
+        if (user) {
+          db.collection("Gifs").doc(user.email).set({
+            gifs: savedGif
+          })
+            .then(function () {
+              console.log("Document successfully written!");
+            })
+            .catch(function (error) {
+              console.error("Error writing document: ", error);
+            });
+        }
+      });
+    });
+  }
 });
 
 auth.onAuthStateChanged(function (user) {
   if (user) {
-      console.log("User is signed in.")
-      var email = user.email;
-      var uid = user.uid;
-      console.log(uid + "  " + email)
+    console.log("User is signed in.")
+    var email = user.email;
+    var uid = user.uid;
+    console.log(uid + "  " + email)
   } else {
-      console.log("No User")
+    console.log("No User")
   }
 });
 
-$("#dashboard").on("click", function (event){
-    event.preventDefault()
-    window.location.replace("gifs.html")
+$("#dashboard").on("click", function (event) {
+  event.preventDefault()
+  window.location.replace("gifs.html")
 })
 
-$("#sign-out").on("click", function(event){
+$("#sign-out").on("click", function (event) {
   event.preventDefault();
-  firebase.auth().signOut().then(function() {
+  firebase.auth().signOut().then(function () {
     window.location.replace("index.html")
-  }).catch(function(error) {
+  }).catch(function (error) {
     console.log("User not signed out!")
   });
 });
