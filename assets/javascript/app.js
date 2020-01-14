@@ -21,8 +21,7 @@ const saveMode = {
 $("#search").on("click", function (event) {
   event.preventDefault();
   var submission = $("#submission").val().trim();
-  var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + submission + "&api_key=jZgvmAfsUyAWVLyCKuEAHj8keAQ2zpJ2&limit=18";
-
+  var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + submission + "&api_key=jZgvmAfsUyAWVLyCKuEAHj8keAQ2zpJ2&limit=15";
   $.ajax({
     url: queryURL,
     method: "GET"
@@ -31,6 +30,7 @@ $("#search").on("click", function (event) {
       $("#gifs").prepend($("<img>").attr("src", response.data[i].images.original.url));
     }
   });
+  $("#submission").empty()
 });
 
 $("#save-gif").on("click", function (event) {
@@ -38,10 +38,10 @@ $("#save-gif").on("click", function (event) {
   saveMode.saving = true
   if (saveMode.saving === true) {
     $("#nav").prepend("<button id='save' class='btn btn-primary'>" + "Save" + "</button>")
-    $("body").css("opacity", ".85")
+    $("body").css("opacity", ".80")
     let savedGif = []
-
     $("img").on("click", function () {
+      $(this).css("box-shadow", "none")
       event.preventDefault()
       const gif = $(this).attr("src");
       if (!savedGif.includes(gif)) {
@@ -53,6 +53,9 @@ $("#save-gif").on("click", function (event) {
 
     $("#save").on("click", function (event) {
       event.preventDefault()
+      $(this).css("display", "none")
+      $("body").css("opacity", "1")
+      saveMode.saving = false;
       auth.onAuthStateChanged(function (user) {
         if (user) {
           db.collection("Gifs").doc(user.email).set({
