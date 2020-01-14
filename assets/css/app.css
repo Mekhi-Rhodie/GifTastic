@@ -29,16 +29,12 @@ img{
     width: 250px;
     height: 250px;
     margin: 10px;
-    box-shadow: 7px 7px 5px #171c1b;
+    box-shadow: 7px 7px 10px #171c1b;
 }
 
 #gifs{
     margin-top: 70px;
     margin-left: 110px;
-}
-
-#gif-buttons{
-    margin-bottom: 50px;
 }
 
 #buttons{
