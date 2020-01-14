@@ -33,44 +33,48 @@ $("#search").on("click", function (event) {
   $("#submission").empty()
 });
 
+let savedGif = []
 $("#save-gif").on("click", function (event) {
   event.preventDefault()
   saveMode.saving = true
   if (saveMode.saving === true) {
     $("#nav").prepend("<button id='save' class='btn btn-primary'>" + "Save" + "</button>")
     $("body").css("opacity", ".80")
-    let savedGif = []
     $("img").on("click", function () {
-      $(this).css("box-shadow", "none")
       event.preventDefault()
       const gif = $(this).attr("src");
+      $(this).css("box-shadow", "none")
       if (!savedGif.includes(gif)) {
         savedGif.push(gif)
+      }
+      if(saveMode.saving === false){
+        $(this).css("box-shadow", "7px 7px 3px #171c1b")
       }
       console.clear()
       console.log(savedGif)
     })
-
-    $("#save").on("click", function (event) {
-      event.preventDefault()
-      $(this).css("display", "none")
-      $("body").css("opacity", "1")
-      saveMode.saving = false;
-      auth.onAuthStateChanged(function (user) {
-        if (user) {
-          db.collection("Gifs").doc(user.email).set({
-            gifs: savedGif
-          })
-            .then(function () {
-              console.log("Document successfully written!");
-            })
-            .catch(function (error) {
-              console.error("Error writing document: ", error);
-            });
-        }
-      });
-    });
   }
+
+  $("#save").on("click", function (event) {
+    event.preventDefault()
+    $(this).css("display", "none")
+    $("body").css("opacity", "1")
+    $("img").css("box-shadow","7px 7px 3px #171c1b")
+    saveMode.saving = false;
+    auth.onAuthStateChanged(function (user) {
+      if (user) {
+        db.collection("Gifs").doc(user.email).set({
+          gifs: savedGif
+        })
+          .then(function () {
+            console.log("Document successfully written!");
+          })
+          .catch(function (error) {
+            console.error("Error writing document: ", error);
+          });
+      }
+    });
+  });
 });
 
 auth.onAuthStateChanged(function (user) {
