@@ -18,6 +18,26 @@ const saveMode = {
   saving: false
 }
 
+let savedGif = []
+
+auth.onAuthStateChanged(function (user) {
+  if (user) {
+    db.collection("Gifs").doc(user.email).get().then(function (doc) {
+      if (doc.exists) {
+          const data = doc.data().gifs
+          for(let i = 0; i < data.length; i++){
+              console.log(data[i])
+              savedGif.push(data[i])
+          }
+      } else {
+          console.log("No such document!");
+      }
+  }).catch(function (error) {
+      console.log("Error getting document:", error);
+  });  
+  } 
+});
+
 $("#search").on("click", function (event) {
   event.preventDefault();
   var submission = $("#submission").val().trim();
@@ -33,7 +53,6 @@ $("#search").on("click", function (event) {
   $("#submission").empty()
 });
 
-let savedGif = []
 $("#save-gif").on("click", function (event) {
   event.preventDefault()
   saveMode.saving = true
