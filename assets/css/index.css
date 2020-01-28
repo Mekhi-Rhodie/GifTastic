@@ -21,14 +21,6 @@ header{
     border-radius: 25px;
 }
 
-#main-content{
-    margin-top: 120px;
-    background-color: black;
-    padding: 1.5%;
-    color: #e8e9ed;
-    border-radius: 25px;
-}
-
 h1{
     font-weight: bold;
     text-decoration: underline;
@@ -37,12 +29,13 @@ h1{
 }
 
 main{
+    margin-top: 120px;
     background-image: linear-gradient(to right, #7141d8, #80e5f7, #97ef94);
     padding: 2%;
     border-radius: 25px;
     font-size: 19px;
     line-height: 30px;
-    color: silver;
+    color: black;
 }
 
 footer{
