@@ -1,4 +1,4 @@
-# GifTastic
+# Gif-Tastic
 ## Overview 
 
 Gif-Tastic is a simple app the allows users to search for different topics and generate gifs based on those topics. Users are also able to save their favorite gifs to their account.
