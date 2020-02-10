@@ -4,13 +4,13 @@
 Gif-Tastic is a simple app the allows users to search for different topics and generate gifs based on those topics. Users are also able to save their favorite gifs to their account.
 
 ## Technologies Used
-1. HTML
-2. CSS
-3. JavaScript
-4. jQuery
-5. Firebase
-6. Giphy API
-7. Bootstrap 4
+- HTML
+- CSS
+- JavaScript
+- jQuery
+- Firebase
+- Giphy API
+- Bootstrap 4
 
 ## How To Use App
 Once following the url, user is greated to a small description of Gif-Tastic as well as a "Login / Registration" button in the header.
