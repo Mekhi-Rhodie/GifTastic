@@ -64,6 +64,7 @@ $("#save-gif").on("click", function (event) {
       event.preventDefault()
       const gif = $(this).attr("src");
       $(this).css("box-shadow", "none")
+      $(this).css("transform","scale(0.5)")
       if (!savedGif.includes(gif)) {
         savedGif.push(gif)
       }
@@ -78,6 +79,7 @@ $("#save-gif").on("click", function (event) {
   $("#save").on("click", function (event) {
     event.preventDefault()
     $(this).css("display", "none")
+    $("img").css("transform","scale(1)")
     $("body").css("opacity", "1")
     saveMode.saving = false;
     auth.onAuthStateChanged(function (user) {
