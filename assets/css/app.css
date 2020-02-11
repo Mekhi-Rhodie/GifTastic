@@ -28,9 +28,20 @@ form{
 img{
     width: 250px;
     height: 250px;
-    margin: 10px;
-    box-shadow: 7px 7px 3px #171c1b;
+    margin: 35px 35px 20px 0px;
+    box-shadow: 7px 7px 7px #171c1b;
 }
+
+.selected-gif{
+    transition-duration: 300ms;
+    transition-property: all;
+}
+
+.selected-gif:hover{
+    transform: scale(1.2);
+    box-shadow: 7px 7px 15px #171c1b;
+}
+
 
 #gifs{
     margin-top: 70px;

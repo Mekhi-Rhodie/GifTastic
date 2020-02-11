@@ -59,6 +59,7 @@ $("#save-gif").on("click", function (event) {
   if (saveMode.saving === true) {
     $("#nav").prepend("<button id='save' class='btn btn-primary'>" + "Save" + "</button>")
     $("body").css("opacity", ".80")
+    $("img").addClass("selected-gif")
     $("img").on("click", function () {
       event.preventDefault()
       const gif = $(this).attr("src");
@@ -78,7 +79,6 @@ $("#save-gif").on("click", function (event) {
     event.preventDefault()
     $(this).css("display", "none")
     $("body").css("opacity", "1")
-    $("img").css("box-shadow","7px 7px 3px #171c1b")
     saveMode.saving = false;
     auth.onAuthStateChanged(function (user) {
       if (user) {
