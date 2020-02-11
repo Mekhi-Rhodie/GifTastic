@@ -68,9 +68,6 @@ $("#save-gif").on("click", function (event) {
       if (!savedGif.includes(gif)) {
         savedGif.push(gif)
       }
-      if(saveMode.saving === false){
-        $(this).css("box-shadow", "7px 7px 3px #171c1b")
-      }
       console.clear()
       console.log(savedGif)
     })
