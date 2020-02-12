@@ -65,7 +65,7 @@ $("#delete-mode").on("click", function (event) {
             $(this).css("box-shadow", "none")
             $(this).css("display", "none")
             const pos = savedGif.indexOf(gif)
-            savedGif.shift(pos)
+            savedGif.splice(pos, 1)
             console.clear()
             console.log(savedGif)
             if (deleteMode.deleting === false) {
