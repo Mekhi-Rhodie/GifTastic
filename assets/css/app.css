@@ -8,6 +8,12 @@ header{
     color:  #e8e9ed;
 }
 
+.header-content {
+    font-style: italic;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-shadow: 2px 2px 10px #97ef94;
+}
+
 main{
     margin-top: 100px;
     margin-bottom: 10px;
