@@ -64,12 +64,10 @@ $("#delete-mode").on("click", function (event) {
             const gif = $(this).attr("src");
             $(this).css("box-shadow", "none")
             $(this).css("display", "none")
-            if (savedGif.includes(gif)) {
-                const pos = savedGif.indexOf(gif)
-                savedGif.splice(pos)
-                console.clear()
-                console.log(savedGif)
-            }
+            const pos = savedGif.indexOf(gif)
+            savedGif.shift(pos)
+            console.clear()
+            console.log(savedGif)
             if (deleteMode.deleting === false) {
                 $(this).css("box-shadow", "7px 7px 7px #171c1b")
             }
