@@ -15,27 +15,25 @@ const database = firebase.firestore();
 const auth = firebase.auth()
 
 
-
-$(document).ready(function () {
-    $("#sign-up").on("click", function () {
-        $("#login-modal").fadeIn(600).css("display", "block")
-        $(".container ,header, footer").fadeIn(1000).css("filter","blur(4px)")
+$("#sign-up").on("click", function (event) {
+    event.preventDefault()
+    $("#login-modal").fadeIn(600).css("display", "block")
+    $(".container ,header, footer").fadeIn(1000).css("filter","blur(4px)")
+});
+$("#login").on("click", function () {
+    event.preventDefault()
+    const email = $("#email").val().trim();
+    const password = $("#password").val().trim();
+    auth.signInWithEmailAndPassword(email, password).catch(function (error) {
+        console.log(error)
     });
-    $("#login").on("click", function () {
-        event.preventDefault()
-        const email = $("#email").val().trim();
-        const password = $("#password").val().trim();
-        auth.signInWithEmailAndPassword(email, password).catch(function (error) {
-            console.log(error)
-        });
-    });
-    $("#register").on("click", function () {
-        event.preventDefault()
-        const email = $("#email").val().trim();
-        const password = $("#password").val().trim();
-        auth.createUserWithEmailAndPassword(email, password).catch(function (error) {
-            console.log(error)
-        });
+});
+$("#register").on("click", function () {
+    event.preventDefault()
+    const email = $("#email").val().trim();
+    const password = $("#password").val().trim();
+    auth.createUserWithEmailAndPassword(email, password).catch(function (error) {
+        console.log(error)
     });
 });
 
