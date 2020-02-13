@@ -58,8 +58,28 @@ img{
     margin: 10px;
 }
 
-@media only screen and  (max-width: 766px){
-    body{
-        background-color: crimson;
+@media only screen and (min-width: 375px ) and (max-width: 766px){
+    .row{
+        width: 100%;
+    }
+
+    .form-search{
+        margin-left: 0px;
+    }
+
+    #submission{
+        width: 250px;
+    }
+
+    #gifs{
+        margin-left: 7px;
+    }
+
+    #nav{
+        margin-left: 7px;
+    }
+
+    #dashboard, #save-gif, #sign-out{
+        margin-bottom: 70px;
     }
 }
