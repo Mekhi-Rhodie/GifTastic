@@ -58,7 +58,7 @@ footer {
     font-size: 20px;
 }
 
-@media only screen and (min-width: 360px ) and (max-width: 736px){
+@media only screen and (min-width: 360px ) and (max-width: 800px){
     .row{
         width: 100%;
     }
