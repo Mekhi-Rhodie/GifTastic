@@ -40,6 +40,11 @@ $("#register").on("click", function () {
     });
 });
 
+$("#close").on("click", function(event){
+    $("#login-modal").css("display","none")
+    $("#sign-up").css("display","block")
+})
+
 auth.onAuthStateChanged(function (user) {
     if (user) {
         console.log("User is signed in.")
