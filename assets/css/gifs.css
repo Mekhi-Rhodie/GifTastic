@@ -62,7 +62,7 @@ img{
     box-shadow: 7px 7px 15px #171c1b;
 }
 
-@media only screen and (min-width: 375px ) and (max-width: 766px){
+@media only screen and (min-width: 360px ) and (max-width: 800px){
     .row{
         width: 100%;
     }
@@ -75,7 +75,7 @@ img{
         margin-left: 7px;
     }
 
-    #giftastic, #delete-mode, #sign-out{
+    #giftastic, #delete-mode, #sign-out, #delete{
         margin-bottom: 70px;
     }
 }

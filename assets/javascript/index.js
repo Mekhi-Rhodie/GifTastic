@@ -35,7 +35,15 @@ $("#register").on("click", function () {
     auth.createUserWithEmailAndPassword(email, password).catch(function (error) {
         console.log(error)
     });
+    auth.signInWithEmailAndPassword(email, password).catch(function (error) {
+        console.log(error)
+    });
 });
+
+$("#close").on("click", function(event){
+    $("#login-modal").css("display","none")
+    $("#sign-up").css("display","block")
+})
 
 auth.onAuthStateChanged(function (user) {
     if (user) {
