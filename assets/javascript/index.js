@@ -18,8 +18,9 @@ const auth = firebase.auth()
 $("#sign-up").on("click", function (event) {
     event.preventDefault()
     $("#login-modal").fadeIn(600).css("display", "block")
-    $(".container ,header, footer").fadeIn(1000).css("filter","blur(4px)")
+    $(".container ,header, footer").css("filter","blur(4px)")
 });
+
 $("#login").on("click", function () {
     event.preventDefault()
     const email = $("#email").val().trim();
@@ -28,6 +29,7 @@ $("#login").on("click", function () {
         console.log(error)
     });
 });
+
 $("#register").on("click", function () {
     event.preventDefault()
     const email = $("#email").val().trim();
@@ -42,7 +44,8 @@ $("#register").on("click", function () {
 
 $("#close").on("click", function(event){
     $("#login-modal").css("display","none")
-    $("#sign-up").css("display","block")
+    $("#sign-up").css("display","inline")
+    $(".container ,header, footer").css("filter","blur(0px)")
 })
 
 auth.onAuthStateChanged(function (user) {
