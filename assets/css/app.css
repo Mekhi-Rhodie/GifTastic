@@ -58,7 +58,7 @@ img{
     margin: 10px;
 }
 
-@media only screen and (min-width: 375px ) and (max-width: 766px){
+@media only screen and (min-width:  366px ) and (max-width: 800px){
     .row{
         width: 100%;
     }
@@ -86,4 +86,12 @@ img{
     .form-search{
         margin-top: 70px;
     }
+}
+
+@media only screen and (min-width: 240px) and (max-width: 300px){
+    .row {
+        width: 100%;
+    }
+
+    
 }
