@@ -62,7 +62,7 @@ img{
     box-shadow: 7px 7px 15px #171c1b;
 }
 
-@media only screen and (min-width: 375px ) and (max-width: 800px){
+@media only screen and (min-width: 360px ) and (max-width: 800px){
     .row{
         width: 100%;
     }
