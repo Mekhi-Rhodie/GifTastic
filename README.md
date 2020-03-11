@@ -25,4 +25,5 @@ to start using Gif-Tastic...
 7. The gifs will then be saved to the users dashboard which can be accessed by clicking the "Dashboard" button in the header
 
 ## Demo
+![Gif-Tastic](/assets/images/gif-tastic.png?raw=true "Optional Title")
 https://mekhi-rhodie.github.io/GifTastic/index.html
